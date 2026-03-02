@@ -1,0 +1,2505 @@
+{"level": "ERROR", "timestamp": "2025-12-17T13:31:08", "message": "Error processing request POST http://localhost:8000/api/pins/upload/1 172.18.0.1 : [Errno 2] No such file or directory: './mediapins/27e9c4f2-e18e-4d7e-8c7e-bfcf6f91c530_1.jpg'"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/pins/routes.py", line 208, in upload_image
+    await save_file(file.file, image_path)
+  File "/fastapi/app/api/rest/utils.py", line 57, in save_file
+    async with aiofiles.open(path, "wb") as out:
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/base.py", line 63, in __aenter__
+    return await self
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/base.py", line 59, in __await__
+    self._obj = yield from self._coro.__await__()
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/threadpool/__init__.py", line 92, in _open
+    f = await loop.run_in_executor(executor, cb)
+  File "/usr/local/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+FileNotFoundError: [Errno 2] No such file or directory: './mediapins/27e9c4f2-e18e-4d7e-8c7e-bfcf6f91c530_1.jpg'
+{"level": "ERROR", "timestamp": "2025-12-17T13:33:18", "message": "Error processing request POST http://localhost:8000/api/pins/upload/1 172.18.0.1 : [Errno 2] No such file or directory: './mediapins/17e696b8-72f1-482e-8e9b-f2b7b9e84aab_1.jpg'"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/pins/routes.py", line 208, in upload_image
+    await save_file(file.file, image_path)
+  File "/fastapi/app/api/rest/utils.py", line 57, in save_file
+    async with aiofiles.open(path, "wb") as out:
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/base.py", line 63, in __aenter__
+    return await self
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/base.py", line 59, in __await__
+    self._obj = yield from self._coro.__await__()
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/threadpool/__init__.py", line 92, in _open
+    f = await loop.run_in_executor(executor, cb)
+  File "/usr/local/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+FileNotFoundError: [Errno 2] No such file or directory: './mediapins/17e696b8-72f1-482e-8e9b-f2b7b9e84aab_1.jpg'
+{"level": "ERROR", "timestamp": "2025-12-17T14:02:03", "message": "Error processing request POST http://localhost:8000/api/boards/1/pins/1 172.18.0.1 : (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+[SQL: INSERT INTO board_pins (board_id, pin_id) VALUES ($1::INTEGER, $2::INTEGER)]
+[parameters: (1, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 534, in _prepare_and_execute
+    self._rows = deque(await prepared_stmt.fetch(*parameters))
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 267, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 256, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 206, in bind_execute
+asyncpg.exceptions.ForeignKeyViolationError: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 568, in execute
+    self._adapt_connection.await_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 546, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 497, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.IntegrityError: <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/boards/routes.py", line 88, in add_pin_to_board
+    await db.execute(stmt)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 461, in execute
+    result = await greenlet_spawn(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2256, in _execute_internal
+    result = conn.execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 568, in execute
+    self._adapt_connection.await_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 546, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 497, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.IntegrityError: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+[SQL: INSERT INTO board_pins (board_id, pin_id) VALUES ($1::INTEGER, $2::INTEGER)]
+[parameters: (1, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+{"level": "ERROR", "timestamp": "2025-12-17T14:02:13", "message": "Error processing request POST http://localhost:8000/api/boards/1/pins/1 172.18.0.1 : (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+[SQL: INSERT INTO board_pins (board_id, pin_id) VALUES ($1::INTEGER, $2::INTEGER)]
+[parameters: (1, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 534, in _prepare_and_execute
+    self._rows = deque(await prepared_stmt.fetch(*parameters))
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 267, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 256, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 206, in bind_execute
+asyncpg.exceptions.ForeignKeyViolationError: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 568, in execute
+    self._adapt_connection.await_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 546, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 497, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.IntegrityError: <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/boards/routes.py", line 88, in add_pin_to_board
+    await db.execute(stmt)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 461, in execute
+    result = await greenlet_spawn(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2256, in _execute_internal
+    result = conn.execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 568, in execute
+    self._adapt_connection.await_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 546, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 497, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.IntegrityError: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+[SQL: INSERT INTO board_pins (board_id, pin_id) VALUES ($1::INTEGER, $2::INTEGER)]
+[parameters: (1, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+{"level": "ERROR", "timestamp": "2025-12-17T14:03:32", "message": "Error processing request POST http://localhost:8000/api/boards/1/pins/1 172.18.0.1 : (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+[SQL: INSERT INTO board_pins (board_id, pin_id) VALUES ($1::INTEGER, $2::INTEGER)]
+[parameters: (1, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 534, in _prepare_and_execute
+    self._rows = deque(await prepared_stmt.fetch(*parameters))
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 176, in fetch
+    data = await self.__bind_execute(args, 0, timeout)
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 267, in __bind_execute
+    data, status, _ = await self.__do_execute(
+  File "/usr/local/lib/python3.10/site-packages/asyncpg/prepared_stmt.py", line 256, in __do_execute
+    return await executor(protocol)
+  File "asyncpg/protocol/protocol.pyx", line 206, in bind_execute
+asyncpg.exceptions.ForeignKeyViolationError: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 568, in execute
+    self._adapt_connection.await_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 546, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 497, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in _handle_exception
+    raise translated_error from error
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.IntegrityError: <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/boards/routes.py", line 88, in add_pin_to_board
+    await db.execute(stmt)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 461, in execute
+    result = await greenlet_spawn(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2362, in execute
+    return self._execute_internal(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 2256, in _execute_internal
+    result = conn.execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1418, in execute
+    return meth(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 568, in execute
+    self._adapt_connection.await_(
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+    return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+    value = await result
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 546, in _prepare_and_execute
+    self._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 497, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+  File "/usr/local/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 780, in _handle_exception
+    raise translated_error from error
+sqlalchemy.exc.IntegrityError: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.ForeignKeyViolationError'>: insert or update on table "board_pins" violates foreign key constraint "board_pins_board_id_fkey"
+DETAIL:  Key (board_id)=(1) is not present in table "boards".
+[SQL: INSERT INTO board_pins (board_id, pin_id) VALUES ($1::INTEGER, $2::INTEGER)]
+[parameters: (1, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+{"level": "ERROR", "timestamp": "2025-12-17T14:48:35", "message": "Error processing request GET http://localhost:8000/api/tags/tags-with-first-pin/upload/1 172.18.0.1 : File at path pins/c5312725-23b2-449f-add6-22a908e20e38.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path pins/c5312725-23b2-449f-add6-22a908e20e38.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-17T14:48:50", "message": "Error processing request GET http://localhost:8000/api/tags/tags-with-first-pin/upload/3 172.18.0.1 : File at path pins/91cb4e3d-c3a5-4ed7-afcd-ee1c69e11247.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path pins/91cb4e3d-c3a5-4ed7-afcd-ee1c69e11247.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-17T14:49:31", "message": "Error processing request GET http://localhost:8000/api/tags/tags-with-first-pin/upload/1 172.18.0.1 : File at path pins/c5312725-23b2-449f-add6-22a908e20e38.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path pins/c5312725-23b2-449f-add6-22a908e20e38.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-17T14:56:18", "message": "Error processing request GET http://localhost:8000/api/tags/tags-with-first-pin/upload/1 172.18.0.1 : File at path pins/c5312725-23b2-449f-add6-22a908e20e38.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path pins/c5312725-23b2-449f-add6-22a908e20e38.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-17T14:57:02", "message": "Error processing request GET http://localhost:8000/api/tags/tags-with-first-pin/upload/1 172.18.0.1 : name 'settings' is not defined"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/tags/routes.py", line 85, in get_image
+    media_root = Path(settings.MEDIA_PATH)
+NameError: name 'settings' is not defined
+{"level": "ERROR", "timestamp": "2025-12-17T14:58:38", "message": "Error processing request GET http://localhost:8000/api/tags/tags-with-first-pin/upload/1 172.18.0.1 : name 'settings' is not defined"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/tags/routes.py", line 85, in get_image
+NameError: name 'settings' is not defined
+{"level": "ERROR", "timestamp": "2025-12-18T01:42:20", "message": "Error processing request GET http://localhost/api/notauth/images/2 172.18.0.12 : File at path ./medianotauth/2.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path ./medianotauth/2.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T01:44:13", "message": "Error processing request POST http://localhost:8000/api/comments/upload/1 172.18.0.1 : [Errno 2] No such file or directory: './mediacomments/a28e8fd4-24cf-4cc2-9585-2580abcfc9d7_1.jpg'"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 96, in upload_image
+    await save_file(file.file, image_path)
+  File "/fastapi/app/api/rest/utils.py", line 57, in save_file
+    async with aiofiles.open(path, "wb") as out:
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/base.py", line 63, in __aenter__
+    return await self
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/base.py", line 59, in __await__
+    self._obj = yield from self._coro.__await__()
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/threadpool/__init__.py", line 92, in _open
+    f = await loop.run_in_executor(executor, cb)
+  File "/usr/local/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+FileNotFoundError: [Errno 2] No such file or directory: './mediacomments/a28e8fd4-24cf-4cc2-9585-2580abcfc9d7_1.jpg'
+{"level": "ERROR", "timestamp": "2025-12-18T01:48:26", "message": "Error processing request POST http://localhost:8000/api/comments/create-comment-on-pin-entity/1 172.18.0.1 : Expecting value: line 1 column 1 (char 0)"}
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 201, in create_comment_on_pin_entity
+    comment_model = json.loads(comment_model)
+  File "/usr/local/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+{"level": "ERROR", "timestamp": "2025-12-18T01:51:29", "message": "Error processing request POST http://localhost:8000/api/comments/upload/3 172.18.0.1 : [Errno 2] No such file or directory: './mediacomments/8da78b73-93df-4e17-b152-2aa2b44c3b90_1.jpg'"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 96, in upload_image
+    await save_file(file.file, image_path)
+  File "/fastapi/app/api/rest/utils.py", line 57, in save_file
+    async with aiofiles.open(path, "wb") as out:
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/base.py", line 63, in __aenter__
+    return await self
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/base.py", line 59, in __await__
+    self._obj = yield from self._coro.__await__()
+  File "/usr/local/lib/python3.10/site-packages/aiofiles/threadpool/__init__.py", line 92, in _open
+    f = await loop.run_in_executor(executor, cb)
+  File "/usr/local/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+FileNotFoundError: [Errno 2] No such file or directory: './mediacomments/8da78b73-93df-4e17-b152-2aa2b44c3b90_1.jpg'
+{"level": "ERROR", "timestamp": "2025-12-18T02:07:12", "message": "Error processing request POST http://localhost:8000/api/comments/create-comment-on-pin-entity/1 172.18.0.1 : Expecting value: line 1 column 1 (char 0)"}
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 196, in create_comment_on_pin_entity
+    data = json.loads(comment_model)
+  File "/usr/local/lib/python3.10/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/usr/local/lib/python3.10/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/local/lib/python3.10/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+{"level": "ERROR", "timestamp": "2025-12-18T02:10:44", "message": "Error processing request GET http://localhost:8000/api/comments/upload/1 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    mime_type, _ = mimetypes.guess_type(comment.image)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:10:47", "message": "Error processing request GET http://localhost:8000/api/comments/upload/1 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    mime_type, _ = mimetypes.guess_type(comment.image)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:13:42", "message": "Error processing request GET http://localhost:8000/api/comments/upload/1 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    mime_type, _ = mimetypes.guess_type(comment.image)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:17:56", "message": "Error processing request GET http://localhost:8000/api/comments/upload/2 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    mime_type, _ = mimetypes.guess_type(comment.image)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:18:00", "message": "Error processing request GET http://localhost:8000/api/comments/upload/3 172.18.0.1 : File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:18:03", "message": "Error processing request GET http://localhost:8000/api/comments/upload/4 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    mime_type, _ = mimetypes.guess_type(comment.image)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:18:08", "message": "Error processing request GET http://localhost:8000/api/comments/upload/5 172.18.0.1 : File at path comments/ad52d887-a59e-4865-b306-2346b181a661.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path comments/ad52d887-a59e-4865-b306-2346b181a661.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:18:11", "message": "Error processing request GET http://localhost:8000/api/comments/upload/6 172.18.0.1 : File at path comments/dd49d2d1-9f14-43a2-87f1-da1272744744.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path comments/dd49d2d1-9f14-43a2-87f1-da1272744744.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:19:15", "message": "Error processing request GET http://localhost:8000/api/comments/upload/1 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    media_root = Path(settings.MEDIA_PATH)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:19:19", "message": "Error processing request GET http://localhost:8000/api/comments/upload/3 172.18.0.1 : File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:19:20", "message": "Error processing request GET http://localhost:8000/api/comments/upload/3 172.18.0.1 : File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:19:21", "message": "Error processing request GET http://localhost:8000/api/comments/upload/3 172.18.0.1 : File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:19:22", "message": "Error processing request GET http://localhost:8000/api/comments/upload/3 172.18.0.1 : File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path comments/672df920-9a85-4608-b34b-b21b1f2cac56.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:19:25", "message": "Error processing request GET http://localhost:8000/api/comments/upload/1 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    media_root = Path(settings.MEDIA_PATH)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:19:45", "message": "Error processing request GET http://localhost:8000/api/comments/upload/1 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    media_root = Path(settings.MEDIA_PATH)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:20:23", "message": "Error processing request GET http://localhost:8000/api/comments/upload/1 172.18.0.1 : expected str, bytes or os.PathLike object, not NoneType"}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
+    response = await f(request)
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 301, in app
+    raw_response = await run_endpoint_function(
+  File "/usr/local/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/fastapi/app/api/rest/comments/routes.py", line 127, in get_image
+    media_root = Path(settings.MEDIA_PATH)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 307, in guess_type
+    return _db.guess_type(url, strict)
+  File "/usr/local/lib/python3.10/mimetypes.py", line 122, in guess_type
+    url = os.fspath(url)
+TypeError: expected str, bytes or os.PathLike object, not NoneType
+{"level": "ERROR", "timestamp": "2025-12-18T02:30:34", "message": "Error processing request GET http://localhost/api/notauth/images/2 172.18.0.12 : File at path ./medianotauth/2.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path ./medianotauth/2.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:34:48", "message": "Error processing request GET http://localhost/api/notauth/images/2 172.18.0.12 : File at path ./medianotauth/2.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path ./medianotauth/2.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:46:09", "message": "Error processing request GET http://localhost/api/notauth/images/2 172.18.0.12 : File at path ./medianotauth/2.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path ./medianotauth/2.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T02:54:02", "message": "Error processing request GET http://localhost/api/notauth/images/2 172.18.0.12 : File at path ./medianotauth/2.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path ./medianotauth/2.jpg does not exist.
+{"level": "ERROR", "timestamp": "2025-12-18T03:05:15", "message": "Error processing request GET http://localhost/api/notauth/images/3 172.18.0.12 : File at path ./medianotauth/3.jpg does not exist."}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 111, in receive
+    return self.receive_nowait()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 106, in receive_nowait
+    raise WouldBlock
+anyio.WouldBlock
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 124, in receive
+    return receiver.item
+AttributeError: 'MemoryObjectItemReceiver' object has no attribute 'item'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 157, in call_next
+    message = await recv_stream.receive()
+  File "/usr/local/lib/python3.10/site-packages/anyio/streams/memory.py", line 126, in receive
+    raise EndOfStream
+anyio.EndOfStream
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/fastapi/app/middlewares.py", line 20, in log_requests_and_server_http_exception_handler
+    response: Response = await call_next(request)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 163, in call_next
+    raise app_exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/base.py", line 149, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 298, in _sentry_exceptionmiddleware_call
+    await old_call(self, scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/sentry_sdk/integrations/starlette.py", line 200, in _create_span_call
+    return await old_call(app, scope, new_receive, new_send, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+    await route.handle(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+    await self.app(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/usr/local/lib/python3.10/site-packages/starlette/routing.py", line 74, in app
+    await response(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/starlette/responses.py", line 335, in __call__
+    raise RuntimeError(f"File at path {self.path} does not exist.")
+RuntimeError: File at path ./medianotauth/3.jpg does not exist.

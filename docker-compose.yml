@@ -1,0 +1,193 @@
+version: "3.9"
+
+services:
+  fastapi-app:
+    build:
+      context: .
+      dockerfile: Dockerfile-fastapi
+    image: fastapi-image:latest
+    container_name: fastapi-container
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ${MEDIA_PATH}:/fastapi/media
+      - ${MEDIA_PATH}/notauth:/fastapi/medianotauth
+      - ${LOGS_PATH}:/logs
+
+    env_file:
+      - ./.env
+
+    networks:
+      - pinterest-network
+
+    depends_on:
+      - redis
+      - postgres
+      - rabbitmq
+      - mongodb
+      - mysql
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  celery-worker:
+    image: fastapi-image:latest
+    container_name: celery-worker-container
+    command: celery -A app.celery.celery_app.celery_instance worker --loglevel=info
+
+    volumes:
+      - ${MEDIA_PATH}:/fastapi/media
+      - ${MEDIA_PATH}/notauth:/fastapi/medianotauth
+      - ${LOGS_PATH}:/logs
+
+    env_file:
+      - ./.env
+
+    networks:
+      - pinterest-network
+
+    depends_on:
+      - redis
+      - rabbitmq
+
+  celery-beat:
+    image: fastapi-image:latest
+    container_name: celery-beat-container
+    command: celery -A app.celery.celery_app.celery_instance beat --loglevel=info
+
+    volumes:
+      - ${MEDIA_PATH}:/fastapi/media
+      - ${MEDIA_PATH}/notauth:/fastapi/medianotauth
+      - ${LOGS_PATH}:/logs
+
+    env_file:
+      - ./.env
+
+    networks:
+      - pinterest-network
+
+    depends_on:
+      - redis
+      - rabbitmq
+
+  vuejs:
+    build:
+      context: .
+      dockerfile: Dockerfile-vuejs
+    image: vuejs-image:latest
+    container_name: vuejs-container
+    ports:
+      - "80:80"
+    networks:
+      - pinterest-network
+    depends_on:
+      - fastapi-app
+
+  redis:
+    image: redis:7
+    container_name: redis
+    restart: unless-stopped
+    command: ["redis-server", "--requirepass", "${REDIS_PASS}"]
+    ports:
+      - "6379:6379"
+    networks:
+      - pinterest-network
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB_NAME}
+      POSTGRES_USER: ${POSTGRES_DB_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_DB_PASS}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - pinterest-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5050:80"
+    networks:
+      - pinterest-network
+
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASS}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - pinterest-network
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: unless-stopped
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_EXPRESS_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_EXPRESS_PASS}
+      ME_CONFIG_MONGODB_SERVER: mongodb
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+    networks:
+      - pinterest-network
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DB_NAME}
+      MYSQL_USER: ${MYSQL_DB_USER}
+      MYSQL_PASSWORD: ${MYSQL_DB_PASS}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_DB_PASS_ROOT}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - pinterest-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - pinterest-network
+
+networks:
+  pinterest-network:
+    external: true
+
+volumes:
+  pgdata:
+  mysql_data:
+  mongodb_data:

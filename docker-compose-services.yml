@@ -1,0 +1,85 @@
+  services:
+    postgresql:
+      image: postgres:16
+      container_name: ${POSTGRES_DB_HOST}
+      environment:
+        POSTGRES_USER: ${POSTGRES_DB_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_DB_PASS}
+        POSTGRES_DB: ${POSTGRES_DB_NAME}
+      networks:
+        - pinterest-network
+      volumes:
+        - postgresql-data:/var/lib/postgresql/data
+
+    test_postgresql:
+      image: postgres:16
+      container_name: ${TEST_POSTGRES_DB_HOST}
+      environment:
+        POSTGRES_USER: ${TEST_POSTGRES_DB_USER}
+        POSTGRES_PASSWORD: ${TEST_POSTGRES_DB_PASS}
+        POSTGRES_DB: ${TEST_POSTGRES_DB_NAME}
+      networks:
+        - pinterest-network
+      volumes:
+        - test-postgresql-data:/var/lib/postgresql/data
+
+    mongodb:
+      image: mongo:latest
+      container_name: ${MONGO_DB_HOST}
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_USER}
+        MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASS}
+        MONGO_INITDB_DATABASE: ${MONGO_DB_NAME}
+      networks:
+        - pinterest-network
+      volumes:
+        - mongodb-data:/data/db
+
+    # mysql:
+    #   image: mysql:8
+    #   container_name: ${MYSQL_DB_HOST}
+    #   environment:
+    #     MYSQL_ROOT_PASSWORD: ${MYSQL_DB_PASS_ROOT}    
+    #     MYSQL_DATABASE: ${MYSQL_DB_NAME}            
+    #     MYSQL_USER: ${MYSQL_DB_USER}           
+    #     MYSQL_PASSWORD: ${MYSQL_DB_PASS}         
+    #   networks:
+    #     - pinterest-network
+    #   volumes:
+    #     - mysql-data:/var/lib/mysql
+
+    redis:
+      image: redis:7.4
+      container_name: ${REDIS_HOST}
+      environment:
+        REDIS_PASSWORD: ${REDIS_PASS}
+      command: redis-server --requirepass ${REDIS_PASS}
+      networks:
+        - pinterest-network
+      volumes:
+        - redis-data:/data
+
+    rabbitmq:
+      image: rabbitmq:3-management
+      container_name: ${RABBITMQ_HOST}
+      environment:
+        RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+        RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+      networks:
+        - pinterest-network
+      volumes:
+        - rabbitmq-data:/var/lib/rabbitmq
+        - rabbitmq-logs:/var/log/rabbitmq
+
+  networks:
+    pinterest-network:
+      external: true
+
+  volumes:
+    postgresql-data:
+    test-postgresql-data:
+    mongodb-data:
+    mysql-data:
+    redis-data:
+    rabbitmq-data:
+    rabbitmq-logs:

@@ -1,0 +1,26 @@
+# Этап 1: сборка Vue.js
+FROM node:18 AS builder
+WORKDIR /app
+
+# Установка зависимостей
+COPY ./vuejs/package*.json ./
+RUN npm install
+
+# Копируем исходный код и собираем проект
+COPY ./vuejs/ .
+RUN npm run build
+
+# Этап 2: настройка Nginx
+FROM nginx:stable-alpine
+
+# Копируем собранные файлы Vue.js
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Копируем конфигурацию Nginx
+COPY nginx.local.conf /etc/nginx/conf.d/default.conf
+
+# Открываем порты 80 и 443
+EXPOSE 80 443
+
+# Запуск Nginx
+CMD ["nginx", "-g", "daemon off;"]

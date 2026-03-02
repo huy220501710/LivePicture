@@ -1,0 +1,16 @@
+.venv/
+venv/
+.ruff_cache/
+.pytest_cache/
+__pycache__/
+NOTES.md
+.env
+.env-ci
+.vscode/
+ci.sh
+.secret
+logs/
+media/
+*.log
+fastapi_logs*.txt
+.DS_Store

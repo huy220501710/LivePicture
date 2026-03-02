@@ -1,0 +1,63 @@
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--web.external-url=https://pint3rest.xyz/prometheus/'
+      - '--web.route-prefix=/prometheus'
+    networks:
+      - pinterest-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_SERVER_ROOT_URL=https://pint3rest.xyz/grafana/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - pinterest-network
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    volumes:
+      - ./promtail-config.yml:/etc/promtail/promtail-config.yml
+      - /var/log/nginx/:/var/log/nginx/                        
+      - ${LOGS_PATH}:/logs/fastapi
+      - promtail-positions:/tmp               
+    command: -config.file=/etc/promtail/promtail-config.yml
+    networks:
+      - pinterest-network
+
+
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    user: "0:0"
+    volumes:
+      - loki_data:/loki
+      - ./loki-config.yml:/etc/loki/loki-config.yml
+      - loki_wal:/wal
+    command: 
+      - -config.file=/etc/loki/loki-config.yml
+    networks:
+      - pinterest-network
+
+networks:
+  pinterest-network:
+    external: true
+
+volumes:
+  prometheus_data:
+  grafana_data:
+  promtail-positions:
+  loki_data:
+  loki_wal:
