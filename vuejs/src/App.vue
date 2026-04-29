@@ -1,9 +1,11 @@
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
+import { ref, onMounted } from 'vue'
+import axios from 'axios'
 import JSConfetti from 'js-confetti'
 import { useToast } from "vue-toastification";
 import { useRoute, useRouter } from 'vue-router';
 import PortfolioView from '@/views/PortfolioView.vue';
+import { parseJwtPayload } from '@/utils/auth';
 
 const confetti = new JSConfetti()
 
@@ -20,21 +22,23 @@ const access_token = ref(null)
 
 
 
-onMounted(() => {
-  const accessToken = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('access_token='))
-    ?.split('=')[1];
-
-  if (accessToken) {
-    has_token.value = true
-    access_token.value = accessToken
-  } else {
+onMounted(async () => {
+  try {
+    const response = await axios.get('/api/users/refresh_token', { withCredentials: true })
+    access_token.value = response.data?.access_token ?? null
+    has_token.value = Boolean(access_token.value)
+  } catch (_) {
     has_token.value = false
+    access_token.value = null
   }
 });
 
-function logout() {
+async function logout() {
+  try {
+    await axios.post('/api/users/logout', {}, { withCredentials: true })
+  } catch (_) {
+    // Keep local logout behavior even if the server call fails.
+  }
   has_token.value = false;
   access_token.value = null;
   router.push('/')
@@ -42,6 +46,12 @@ function logout() {
 
 
 async function login(token) {
+  const payload = parseJwtPayload(token)
+  if (!payload?.user_id) {
+    has_token.value = false;
+    access_token.value = null;
+    return;
+  }
   access_token.value = token;
   has_token.value = true;
 }
@@ -50,6 +60,12 @@ const register = ref(false)
 
 
 function signup(token) {
+  const payload = parseJwtPayload(token)
+  if (!payload?.user_id) {
+    has_token.value = false;
+    access_token.value = null;
+    return;
+  }
   access_token.value = token;
   has_token.value = true;
   register.value = true

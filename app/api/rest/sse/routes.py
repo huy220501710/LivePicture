@@ -47,6 +47,8 @@ async def stream(user_id: int):
 @router.get("/video-stream")
 async def video_stream(request: Request):
     file_path = settings.PATH_VIDEO_STREAM
+    if not os.path.isfile(file_path):
+        raise HTTPException(status_code=404, detail="Video file not found")
     file_size = os.path.getsize(file_path)
     range_header = request.headers.get("Range")
 
@@ -135,13 +137,30 @@ async def range_video_streamer(file_path: str, start: int, end: int, request: Re
 
 @router.get("/notauth/video-stream/{name}")
 async def video_stream(name: str, request: Request):
-    file_path = f"{settings.MEDIA_PATH}/stream/{name}"
+    safe_name = os.path.basename(name)
+    if safe_name != name:
+        raise HTTPException(status_code=400, detail="Invalid video file name")
+
+    file_path = os.path.join(settings.MEDIA_PATH, "stream", safe_name)
+    if not os.path.isfile(file_path):
+        raise HTTPException(status_code=404, detail="Video file not found")
+
     file_size = os.path.getsize(file_path)
     range_header = request.headers.get("Range")
 
     if range_header is None:
-        # Если заголовок Range отсутствует, возвращаем полный файл
-        return StreamingResponse(aiofiles.open(file_path, mode="rb"), media_type="video/mp4")
+        # If no Range header is sent, stream the whole file in chunks.
+        async def full_video_streamer():
+            async with aiofiles.open(file_path, mode="rb") as video:
+                while True:
+                    if await request.is_disconnected():
+                        break
+                    chunk = await video.read(1024 * 1024)
+                    if not chunk:
+                        break
+                    yield chunk
+
+        return StreamingResponse(full_video_streamer(), media_type="video/mp4")
 
     # Пример: "bytes=0-"
     try:

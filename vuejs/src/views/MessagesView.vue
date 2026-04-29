@@ -10,6 +10,7 @@ import { useChatStore } from "@/stores/useChatStore";
 
 import NewMessageToastWebsocket from '@/components/Auth/NewMessageToastWebsocket.vue';
 import NewMessageToast from '@/components/Auth/NewMessageToast.vue';
+import { getCookie, parseJwtPayload } from '@/utils/auth';
 
 import { useToast } from "vue-toastification";
 
@@ -237,15 +238,6 @@ async function addChat(chat_id) {
   }
 
 }
-
-
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-  return null;
-}
-
 const chat_id_redirect = ref(null)
 
 const showLoading = ref(null)
@@ -294,20 +286,23 @@ onMounted(async () => {
   chatStore.fetchChatSize();
   chatStore.fetchSide()
   const accessToken = getCookie('access_token');
-  // Decode the JWT (assuming the access_token is a JWT)
-  const base64Url = accessToken.split('.')[1]; // Get the payload part
-  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  const jsonPayload = decodeURIComponent(
-    atob(base64)
-      .split('')
-      .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-      .join('')
-  );
+  const payload = parseJwtPayload(accessToken)
+  auth_user_id.value = payload?.user_id ?? null
 
-  const payload = JSON.parse(jsonPayload);
+  if (!auth_user_id.value) {
+    try {
+      const meResponse = await axios.get('/api/users/me', { withCredentials: true })
+      auth_user_id.value = meResponse.data?.id ?? null
+    } catch (_) {
+      auth_user_id.value = null
+    }
+  }
 
-  // Log user_id to the console
-  auth_user_id.value = payload.user_id;
+  if (!auth_user_id.value) {
+    showLoading.value = false
+    router.push('/')
+    return
+  }
 
   try {
     const response = await axios.get('/api/messages/user_chats', { withCredentials: true })

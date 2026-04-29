@@ -4,6 +4,7 @@ import { RouterLink, useRoute } from 'vue-router';
 import axios from 'axios';
 import FollowersSection from '@/components/Auth/FollowersSection.vue';
 import FollowingSection from '@/components/Auth/FollowingSection.vue';
+import { getCookie, parseJwtPayload } from '@/utils/auth';
 
 import { useSelectedBoard } from "@/stores/userSelectedBoard";
 
@@ -72,16 +73,6 @@ const formattedTimeRemaining = computed(() => {
   const timeRemaining = Math.max(videoDuration.value - currentTime.value, 0);
   return formatTime(timeRemaining);
 });
-
-
-
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-  return null;
-}
-
 
 const props = defineProps({
   pin: Object,
@@ -187,19 +178,12 @@ async function loadUser() {
   }
 
   const accessToken = getCookie('access_token');
-  // Decode the JWT (assuming the access_token is a JWT)
-  const base64Url = accessToken.split('.')[1]; // Get the payload part
-  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  const jsonPayload = decodeURIComponent(
-    atob(base64)
-      .split('')
-      .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-      .join('')
-  );
+  const payload = parseJwtPayload(accessToken)
+  if (!payload?.user_id) {
+    itsMe.value = false
+    return
+  }
 
-  const payload = JSON.parse(jsonPayload);
-
-  // Log user_id to the console
   let auth_user_id = payload.user_id;
 
   itsMe.value = auth_user_id === popUser.value.id

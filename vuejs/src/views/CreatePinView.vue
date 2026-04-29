@@ -369,40 +369,41 @@ function checkPinAded(name) {
     </div>
   </div>
   <SearchBar />
-  <div class="ml-20 mt-20">
+  <div class="mt-20 px-4 sm:px-6 lg:px-10">
     <ClipLoader v-if="sendingPin" :color="color" :size="size"
       class="flex items-center justify-center h-96 font-extrabold" />
-    <div v-else class="grid grid-cols-2 mt-10 mr-72 gap-10">
-      <button @click="goBack" class="absolute top-4 left-20 text-gray-500 ml-20 mt-20 hover:-translate-x-2">
+    <div v-else class="mx-auto mt-10 max-w-6xl">
+      <button @click="goBack" class="mb-6 text-gray-500 transition duration-100 hover:-translate-x-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
-      <div class="ml-56">
+      <div class="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(300px,340px)_minmax(0,1fr)] xl:items-start">
+      <div class="w-full max-w-[320px] justify-self-center xl:justify-self-start">
         <label for="mediacreate" class="cursor-pointer" @dragover.prevent="onDragOver" @dragleave="onDragLeave"
           @drop.prevent="onDrop">
           <!-- Media Preview -->
           <div id="mediaPreview" v-if="mediaPreview"
-            class="mt-2 border border-dashed border-gray-400 rounded-3xl hover:border-purple-500 hover:bg-purple-100 transition duration-100"
+            class="mt-2 border border-dashed border-gray-400 rounded-3xl p-4 hover:border-purple-500 hover:bg-purple-100 transition duration-100"
             :class="{ 'border-purple-500 bg-purple-100': isDragging }">
             <img id="imagePreview" v-if="isImage" :src="mediaPreview"
-              class="h-auto w-[271.84px] rounded-3xl mx-auto my-8" alt="Media Preview" />
+              class="h-auto w-full max-w-[271.84px] rounded-3xl mx-auto" alt="Media Preview" />
             <video id="videoPreview" v-if="isVideo" :src="mediaPreview"
-              class="h-auto w-[271.84px] rounded-3xl mx-auto my-8" autoplay loop muted />
+              class="h-auto w-full max-w-[271.84px] rounded-3xl mx-auto" autoplay loop muted />
           </div>
 
           <!-- Placeholder for no preview -->
           <div v-else
-            class="mt-2 border border-dashed border-gray-900 rounded-3xl hover:border-purple-500 hover:bg-purple-100 transition duration-100 overflow-hidden"
+            class="mt-2 border border-dashed border-gray-900 rounded-3xl p-4 hover:border-purple-500 hover:bg-purple-100 transition duration-100"
             :class="{ 'border-purple-500 bg-purple-100': isDragging }">
             <div
-              class="relative  h-96 w-[271.84px] flex justify-center items-center text-center rounded-3xl mx-auto my-8">
-              <div class="absolute flex flex-col items-center space-y-4">
+              class="min-h-96 w-full max-w-[271.84px] mx-auto rounded-3xl flex items-center justify-center px-3">
+              <div class="flex w-full flex-col items-center gap-3 text-center">
                 <i class="pi pi-arrow-up text-4xl text-gray-400"></i>
-                <p class="mt-2 text-xl text-black">Drag & Drop or Click to Upload</p>
-                <p class="mt-2 text-sm text-gray-700">Images must be at least 200x300 pixels</p>
-                <p class="mt-2 text-sm text-gray-700">Videos must be 30 seconds or less</p>
-                <p class="mt-2 text-xs text-gray-700">.jpg .jpeg .gif .webp .png .bmp .mp4 .webm</p>
+                <p class="w-full text-xl leading-snug text-black">Drag & Drop or Click to Upload</p>
+                <p class="w-full text-sm leading-snug text-gray-700">Images must be at least 200x300 pixels</p>
+                <p class="w-full text-sm leading-snug text-gray-700">Videos must be 30 seconds or less</p>
+                <p class="w-full break-words text-xs leading-snug text-gray-700">.jpg .jpeg .gif .webp .png .bmp .mp4 .webm</p>
               </div>
             </div>
           </div>
@@ -411,12 +412,12 @@ function checkPinAded(name) {
           @change="handleMediaUpload" class="hidden" />
 
         <button @click="submitPin"
-          class="w-full mt-10 transition duration-100 text-white bg-purple-500 hover:bg-purple-600 font-medium rounded-3xl text-sm px-5 py-2.5 text-center">
+          class="mx-auto mt-10 block w-full max-w-[271.84px] transition duration-100 text-white bg-purple-500 hover:bg-purple-600 font-medium rounded-3xl text-sm px-5 py-2.5 text-center">
           Create Pin
         </button>
       </div>
 
-      <div>
+      <div class="min-w-0">
         <div class="space-y-7 mt-2 mb-10">
           <!-- Title Field -->
           <div>
@@ -444,14 +445,14 @@ function checkPinAded(name) {
 
               <h3 class="text-md mb-2 text-gray-600">Add Tags to Pin</h3>
 
-              <div class="flex items-center space-x-2 mb-4">
+              <div class="mb-4 flex flex-wrap items-center gap-2">
                 <button type="button" @click="addTag"
                   class="bg-purple-500 hover:bg-purple-600 transition duration-100 text-white font-medium rounded-3xl text-sm px-4 py-2">
                   Create
                 </button>
 
                 <input v-model="tagToAdd" type="text" name="tags" id="tags" autocomplete="off" @keydown.enter="addTag"
-                  class="hover:bg-purple-100 transition duration-100 cursor-pointer bg-gray-50 border border-gray-900 text-black text-sm rounded-3xl flex-grow py-3 px-5 focus:ring-purple-500 focus:border-purple-500"
+                  class="hover:bg-purple-100 transition duration-100 cursor-pointer bg-gray-50 border border-gray-900 text-black text-sm rounded-3xl min-w-0 flex-1 py-3 px-5 focus:ring-purple-500 focus:border-purple-500"
                   placeholder="Create Tag" />
               </div>
 
@@ -471,5 +472,6 @@ function checkPinAded(name) {
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
