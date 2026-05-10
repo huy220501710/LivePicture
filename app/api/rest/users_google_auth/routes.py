@@ -1,6 +1,8 @@
 import uuid
+import os
+from urllib.parse import urlencode
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from fastapi.responses import RedirectResponse
 from sqlalchemy import insert, select
 
@@ -15,33 +17,51 @@ router = APIRouter(prefix="/users/google/auth", tags=["users-google-auth"])
 
 @router.get("/login/")
 async def login_google():
+    params = {
+        "response_type": "code",
+        "client_id": settings.GOOGLE_OAUTH2_CLIENT_ID,
+        "redirect_uri": settings.GOOGLE_OAUTH2_REDIRECT_URI.strip(),
+        "scope": "openid profile email",
+        "access_type": "offline",
+        "prompt": "consent",
+    }
     return {
-        "url": f"https://accounts.google.com/o/oauth2/auth?response_type=code&client_id={settings.GOOGLE_OAUTH2_CLIENT_ID}&redirect_uri={settings.GOOGLE_OAUTH2_REDIRECT_URI}&scope=openid%20profile%20email&=offline"
+        "url": f"https://accounts.google.com/o/oauth2/v2/auth?{urlencode(params)}"
     }
 
 
 @router.get("/")
 async def auth_google(code: str, db: db):
     client = get_httpx_client()
+    redirect_uri = settings.GOOGLE_OAUTH2_REDIRECT_URI.strip()
 
     token_url = "https://accounts.google.com/o/oauth2/token"
     data = {
         "code": code,
         "client_id": settings.GOOGLE_OAUTH2_CLIENT_ID,
         "client_secret": settings.GOOGLE_OAUTH2_CLIENT_SECRET,
-        "redirect_uri": settings.GOOGLE_OAUTH2_REDIRECT_URI,
+        "redirect_uri": redirect_uri,
         "grant_type": "authorization_code",
     }
 
     response = await client.post(token_url, data=data)
+    if response.status_code >= 400:
+        raise HTTPException(status_code=400, detail="Google token exchange failed")
+
     access_token = response.json().get("access_token")
+    if not access_token:
+        raise HTTPException(status_code=400, detail="Google access token not found")
 
     user_info = await client.get(
         "https://www.googleapis.com/oauth2/v1/userinfo",
         headers={"Authorization": f"Bearer {access_token}"},
     )
+    if user_info.status_code >= 400:
+        raise HTTPException(status_code=400, detail="Google user info request failed")
 
     user_data = user_info.json()
+    if "id" not in user_data or "email" not in user_data:
+        raise HTTPException(status_code=400, detail="Google user info is incomplete")
 
     user_by_google_id = await db.scalar(
         select(UsersOrm).where(UsersOrm.google_id == user_data["id"])
@@ -57,7 +77,7 @@ async def auth_google(code: str, db: db):
         response = await client.get(user_data["picture"])
 
         unique_filename = f"{uuid.uuid4()}.jpg"
-        image_path = f"{settings.MEDIA_PATH}users/{unique_filename}"
+        image_path = os.path.join(settings.MEDIA_PATH, "users", unique_filename)
 
         await save_file_bytes(response.content, image_path)
 
@@ -85,7 +105,7 @@ async def auth_google(code: str, db: db):
             url=f"{settings.FRONTEND_DOMAIN}?register=true", status_code=302
         )
 
-    response_frontend.set_cookie("access_token", access_token)
-    response_frontend.set_cookie("refresh_token", refresh_token)
+    response_frontend.set_cookie("access_token", access_token, httponly=True, samesite="lax")
+    response_frontend.set_cookie("refresh_token", refresh_token, httponly=True, samesite="lax")
 
     return response_frontend

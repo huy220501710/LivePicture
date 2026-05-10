@@ -54,6 +54,7 @@ def encode_token(token: str) -> dict:
 
 
 async def save_file(file: UploadFile, path: str):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     async with aiofiles.open(path, "wb") as out:
         while True:
             chunk = await file.read(1024 * 1024)  # 1MB
@@ -63,6 +64,7 @@ async def save_file(file: UploadFile, path: str):
 
 
 async def save_file_bytes(file_content: bytes, path: str):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     async with aiofiles.open(path, "wb") as new_file:
         await new_file.write(file_content)  # Записываем весь файл сразу
 
