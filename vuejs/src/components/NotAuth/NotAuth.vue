@@ -175,7 +175,7 @@ const loading = ref(true)
 const color = ref('red')
 const size = ref('100px')
 
-const textWelcome = ref('Welcome to Pinterest 🩸')
+const textWelcome = ref('Welcome to LivePicture 🩸')
 
 const images = ref([])
 
@@ -547,7 +547,7 @@ onUnmounted(() => {
 onMounted(async () => {
   scrollContainer.value.addEventListener('wheel', onWheel, { passive: false })
 
-  document.title = 'Pinterest'
+  document.title = 'LivePicture'
   initializeKinesis()
 
 
@@ -596,7 +596,7 @@ const overview = ref(
         <!-- Modal header -->
         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
           <!-- Logo -->
-          <h3 class="text-lg font-semibold text-gray-900">Sign Up to Pinterest 😇</h3>
+          <h3 class="text-lg font-semibold text-gray-900">Sign Up to LivePicture 😇</h3>
           <button @click="showSignUp = false" type="button"
             class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
@@ -668,7 +668,7 @@ const overview = ref(
         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
           <!-- Logo -->
           <h3 class="text-lg font-semibold text-gray-900">
-            Log In to Pinterest 🤫
+            Log In to LivePicture 🤫
           </h3>
           <button @click="showLogin = false" type="button"
             class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center">
@@ -876,7 +876,7 @@ const overview = ref(
 
         <h1
           class="text-6xl font-semibold mb-4 text-center bg-gradient-to-r from-indigo-600 to-red-700 text-transparent bg-clip-text">
-          Pinterest Clone
+          LivePicture
         </h1>
         <h2
           class="text-4xl font-semibold mb-12 text-center bg-gradient-to-r from-purple-600 to-red-700 text-transparent bg-clip-text">
